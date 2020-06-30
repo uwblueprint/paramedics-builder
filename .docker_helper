@@ -1,3 +1,3 @@
 # starts all containers - assumes both paramedics-web and paramedics-react are in the same directory
 #  and this command is run from that directory (i.e. parent of the two directories)
-alias containers-up="cd paramedics-web && docker-compose -f "docker-compose-dev.yaml" up -V --build -d && cd ../paramedics-react && docker-compose -f "docker-compose-dev.yaml" up -V --build -d && cd .."
+alias containers-up="cd paramedics-react && docker-compose -f "docker-compose-dev.yaml" up -V --build -d && cd ../paramedics-web && docker-compose -f "docker-compose-dev.yaml" up -V --build -d && cd .."
