@@ -10,3 +10,5 @@ alias pmc-r="pmc-d && pmc-u"
 alias pma-u="cd paramedics-react && pmc-u && cd ../paramedics-web && pmc-u && cd .."
 alias pma-d="cd paramedics-react && pmc-d && cd ../paramedics-web && pmc-d && cd .."
 alias pma-r="pma-d && pma-u"
+
+alias tunnel="./paramedics-builder/scripts/tunnel.sh $1"
