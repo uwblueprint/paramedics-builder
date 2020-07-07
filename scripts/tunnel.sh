@@ -30,17 +30,17 @@ start() {
 
     # add backend url as environment variable
     if [ -a "paramedics-react.env" ]; then
-        if [ -z $(egrep REACT_APP_BACKEND_TUNNEL paramedics-react.env) ]; then
+        if [ -z $(egrep REACT_APP_BACKEND_HOST paramedics-react.env) ]; then
             # env file already exists but var not set - append to env file
-            echo "REACT_APP_BACKEND_TUNNEL=${BACKEND_URL}" >> paramedics-react.env
+            echo "REACT_APP_BACKEND_HOST=${BACKEND_URL}" >> paramedics-react.env
         else
             # env file already exists and var already set - replace URL in env file
-            sed -i.bak "s|REACT_APP_BACKEND_TUNNEL=.*|REACT_APP_BACKEND_TUNNEL=${BACKEND_URL}|g" paramedics-react.env
+            sed -i.bak "s|REACT_APP_BACKEND_HOST=.*|REACT_APP_BACKEND_HOST=${BACKEND_URL}|g" paramedics-react.env
             rm paramedics-react.env.bak
         fi
     else 
         # env file does not exist - put URL in new env file
-        echo "REACT_APP_BACKEND_TUNNEL=${BACKEND_URL}" > paramedics-react.env
+        echo "REACT_APP_BACKEND_HOST=${BACKEND_URL}" > paramedics-react.env
     fi
 
     # restart container to pick up new env var
@@ -74,7 +74,7 @@ stop() {
     docker-compose -f "docker-compose-dev.yaml" stop
     rm ngrok.log
     if [ -a "paramedics-react.env" ]; then
-        sed -i.bak "/REACT_APP_BACKEND_TUNNEL=.*/d" paramedics-react.env
+        sed -i.bak "/REACT_APP_BACKEND_HOST=.*/d" paramedics-react.env
         rm paramedics-react.env.bak
     fi
     docker-compose -f "docker-compose-dev.yaml" up -d
