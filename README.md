@@ -15,6 +15,12 @@ Once you open a new terminal window/tab, you'll have access to the aliases in [.
 #### Where should I run these aliases?
 For container-specific aliases (i.e. `pmc-*`), run them from their corresponding repos.
 
+e.g. to restart your frontend container:
+```
+$ cd paramedics-react
+$ pmc-r
+```
+
 For all others, run them from a directory above `paramedics-web` and `paramedics-react` (see recommended directory layout below)
 ```
 paramedics-shared/ (run commands from here)
