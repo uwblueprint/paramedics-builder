@@ -13,7 +13,7 @@ source ~/paramedics-builder/.docker-helper
 Once you open a new terminal window/tab, you'll have access to the aliases in [.docker_helper](.docker_helper).
 
 #### Where should I run these aliases?
-For container-specific aliases, run them from their corresponding repos.
+For container-specific aliases (i.e. pmc-*), run them from their corresponding repos.
 
 For all others, run them from a directory above `paramedics-web` and `paramedics-react` (see recommended directory layout below)
 ```
