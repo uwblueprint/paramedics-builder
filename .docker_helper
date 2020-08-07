@@ -1,14 +1,21 @@
 # (p)ara(m)edics (c)ontainers - use on a per-container basis
 #  works for either paramedics-web or paramedics-react
-alias pmc-u="docker-compose -f "docker-compose-dev.yaml" up -V --build -d"
-alias pmc-d="docker-compose -f "docker-compose-dev.yaml" stop"
-alias pmc-r="pmc-d && pmc-u"
+alias pmc-u="docker-compose -f "docker-compose-dev.yaml" up -V --build -d" # up
+alias pmc-d="docker-compose -f "docker-compose-dev.yaml" stop" # down
+alias pmc-r="pmc-d && pmc-u" # restart
+
+alias pmc-l="docker-compose -f "docker-compose-dev.yaml" logs --follow" # logs
+alias pmc-s="../paramedics-builder/scripts/docker_shell.sh" # shell
+
+# /paramedics-web specific
+alias pmc-db="docker-compose -f "docker-compose-dev.yaml" exec paramedics-db psql paramedics-db -U robot"
 
 # (p)ara(m)edics (a)ll containers - use for operations on both (all) containers
 #  assumes both paramedics-web and paramedics-react are in the same directory
 #  and these commands are run from that directory (i.e. parent of the two directories)
-alias pma-u="cd paramedics-react && pmc-u && cd ../paramedics-web && pmc-u && cd .."
-alias pma-d="cd paramedics-react && pmc-d && cd ../paramedics-web && pmc-d && cd .."
-alias pma-r="pma-d && pma-u"
+alias pma-u="cd paramedics-react && pmc-u && cd ../paramedics-web && pmc-u && cd .." # up
+alias pma-d="cd paramedics-react && pmc-d && cd ../paramedics-web && pmc-d && cd .." # down
+alias pma-r="pma-d && pma-u" # restart
 
+# tunnel command
 alias tunnel="./paramedics-builder/scripts/tunnel.sh $1"
