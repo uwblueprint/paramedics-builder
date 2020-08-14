@@ -34,3 +34,10 @@ paramedics-shared/ (run commands from here)
 |    |-- ...
 |-- builder
 ```
+
+#### How do I update these aliases to get the most recent changes?
+```
+$ cd paramedics-builder
+$ git pull
+$ source .docker-helper # or open a new terminal (window, tab, etc.)
+```
