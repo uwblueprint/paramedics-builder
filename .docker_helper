@@ -4,7 +4,8 @@ alias pmc-u="docker-compose -f "docker-compose-dev.yaml" up -V --build -d" # up
 alias pmc-d="docker-compose -f "docker-compose-dev.yaml" stop" # down
 alias pmc-r="pmc-d && pmc-u" # restart
 
-alias pmc-l="docker-compose -f "docker-compose-dev.yaml" logs --follow" # logs
+alias pmc-logs="docker-compose -f "docker-compose-dev.yaml" logs --follow" # logs
+alias pmc-lint="../paramedics-builder/scripts/docker_lint.sh" # lint
 alias pmc-s="../paramedics-builder/scripts/docker_shell.sh" # shell
 
 # /paramedics-web specific
