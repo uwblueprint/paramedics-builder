@@ -12,6 +12,8 @@ source ~/paramedics-builder/.docker_helper
 ```
 Once you open a new terminal window/tab, you'll have access to the aliases in [.docker_helper](.docker_helper).
 
+**NOTE:** you must have the `builder` binary available - if you dont' have it already, `cd` into [`/builder`](/builder) and run `make optimal`; you should see the `builder` file in your `paramedics-shared` directory (i.e. 2 directories up)
+
 #### Where should I run these aliases?
 For container-specific aliases (i.e. `pmc-*`), run them from their corresponding repos.
 
@@ -21,7 +23,7 @@ $ cd paramedics-react
 $ pmc-r
 ```
 
-For all others, run them from a directory above `paramedics-web` and `paramedics-react` (see recommended directory layout below)
+For commands that run for both containers at once (i.e. `pma-*`), run them from a directory above `paramedics-web` and `paramedics-react` (see recommended directory layout below)
 ```
 paramedics-shared/ (run commands from here)
 |-- paramedics-builder/
