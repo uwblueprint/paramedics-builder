@@ -17,7 +17,7 @@ start() {
     echo "🚑 opening backend tunnel..."
     cd paramedics-web
     docker-compose -f "docker-compose-dev.yaml" exec -T paramedics-api ngrok http 4000 --log=stdout > ngrok.log &
-    sleep 0.5
+    sleep 2
     # get URL from ngrok status
     BACKEND_URL=$(docker-compose -f "docker-compose-dev.yaml" exec -T paramedics-api curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"(https:..[^"]*).*/\1/p')
     echo "🚑 backend URL (for reference):"
@@ -50,7 +50,7 @@ start() {
     echo ""
     echo "🚑 opening frontend tunnel..."
     docker-compose -f "docker-compose-dev.yaml" exec -T paramedics-react-dev ngrok http 3000 --log=stdout > ngrok.log &
-    sleep 0.5
+    sleep 2
     # get URL from ngrok status
     FRONTEND_URL=$(docker-compose -f "docker-compose-dev.yaml" exec -T paramedics-react-dev curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"(https:..[^"]*).*/\1/p')
 
@@ -66,7 +66,7 @@ stop() {
     echo "🚑 stopping backend tunnel..."
     cd paramedics-web
     docker-compose -f "docker-compose-dev.yaml" exec paramedics-api sh -c 'kill -9 "$(pgrep ngrok)"'
-    sleep 0.5
+    sleep 2
     rm ngrok.log
 
     echo "🚑 unlinking backend tunnel to frontend..."
